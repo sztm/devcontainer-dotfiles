@@ -12,3 +12,4 @@
 !dot-devcontainer/devcontainer.json
 !dot-devcontainer/post-create.sh
 !dot-devcontainer/Dockerfile
+!install-host.sh

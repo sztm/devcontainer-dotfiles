@@ -5,7 +5,7 @@ set -e
 DOTFILES_DIR="$(pwd)"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
-echo "Installing dotfiles..."
+echo "Installing dotfiles for container..."
 
 # dot-zshrc -> ~/.zshrc
 TARGET="$HOME/.zshrc"
