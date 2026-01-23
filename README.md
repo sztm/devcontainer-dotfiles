@@ -23,10 +23,14 @@ Run the host install script to set up the shared devcontainer configuration:
 
 ### For Container
 
-Run the container install script to deploy dotfiles:
+Run the following command to set up a dev container with dotfiles:
 
 ```bash
-./install-container.sh
+devcontainer up \
+  --workspace-folder . \
+  --config ~/.devcontainer/devcontainer.json \
+  --dotfiles-repository "sztm/devcontainer-dotfiles" \
+  --dotfiles-install-command "install-container.sh"
 ```
 
 This will set up Claude Code settings and Zsh configuration in the container environment.
