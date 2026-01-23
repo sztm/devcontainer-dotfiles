@@ -6,4 +6,4 @@
 !dot-zshrc
 !dot-claude/
 !dot-claude/settings.json
-!install.sh
+!install-container.sh
