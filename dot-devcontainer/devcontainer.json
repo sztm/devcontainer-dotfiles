@@ -1,0 +1,45 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+  "name": "Node.js",
+
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    // https://github.com/devcontainers-extra/features/blob/main/src/claude-code/devcontainer-feature.json
+    "ghcr.io/devcontainers-extra/features/claude-code:1.0.0": {
+      "version": "2.1.16"
+    },
+    // https://github.com/devcontainers-extra/features/blob/main/src/gh-cli/devcontainer-feature.json
+    "ghcr.io/devcontainers-extra/features/gh-cli:1.0.13": {
+      "version": "2.83.2"
+    },
+    // https://github.com/devcontainers/features/blob/main/src/common-utils/devcontainer-feature.json
+    "ghcr.io/devcontainers/features/common-utils:2.5.5": {
+      "configureZshAsDefaultShell": true
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "/bin/bash /tmp/post-create.sh",
+
+  // Configure tool-specific properties.
+  // "customizations": {},
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+
+  // Use "mounts" to mount the source code into the container. Update the source and target.
+  "mounts": [
+    // Use named volumes for node_modules to improve performance.
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+    "source=${localWorkspaceFolderBasename}-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume"
+  ]
+}

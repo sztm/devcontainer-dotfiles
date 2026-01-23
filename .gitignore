@@ -7,3 +7,8 @@
 !dot-claude/
 !dot-claude/settings.json
 !install-container.sh
+
+!dot-devcontainer/
+!dot-devcontainer/devcontainer.json
+!dot-devcontainer/post-create.sh
+!dot-devcontainer/Dockerfile
