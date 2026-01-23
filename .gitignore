@@ -4,4 +4,6 @@
 !README.md
 !.gitignore
 !dot-zshrc
+!dot-claude/
+!dot-claude/settings.json
 !install.sh
