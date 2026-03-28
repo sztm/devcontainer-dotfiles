@@ -14,3 +14,11 @@ RUN apt-get update && apt-get install -y \
   gnupg \
   curl \
   && rm -rf /var/lib/apt/lists/*
+
+USER node
+
+# NOTE: You can specify the latest version of Claude Code here with "latest"
+ARG CLAUDE_CODE_VERSION=2.1.86
+
+# Install Claude Code
+RUN curl -fsSL https://claude.ai/install.sh | bash -s -- ${CLAUDE_CODE_VERSION}

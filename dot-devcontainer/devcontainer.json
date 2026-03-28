@@ -10,10 +10,6 @@
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
-    // https://github.com/devcontainers-extra/features/blob/main/src/claude-code/devcontainer-feature.json
-    "ghcr.io/devcontainers-extra/features/claude-code:1.0.0": {
-      "version": "2.1.16"
-    },
     // https://github.com/devcontainers-extra/features/blob/main/src/gh-cli/devcontainer-feature.json
     "ghcr.io/devcontainers-extra/features/gh-cli:1.0.13": {
       "version": "2.83.2"
