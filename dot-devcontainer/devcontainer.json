@@ -17,6 +17,10 @@
     // https://github.com/devcontainers/features/blob/main/src/common-utils/devcontainer-feature.json
     "ghcr.io/devcontainers/features/common-utils:2.5.5": {
       "configureZshAsDefaultShell": true
+    },
+    // https://github.com/devcontainers/features/blob/main/src/terraform/devcontainer-feature.json
+    "ghcr.io/devcontainers/features/terraform:1.4.2": {
+      "installTerraformDocs": true
     }
   },
 
