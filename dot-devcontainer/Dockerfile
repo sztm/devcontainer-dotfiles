@@ -1,6 +1,6 @@
 # The official javascript-node image: https://github.com/devcontainers/images/tree/main/src/javascript-node
 # List of available images: https://mcr.microsoft.com/v2/devcontainers/javascript-node/tags/list
-FROM mcr.microsoft.com/devcontainers/javascript-node:4.0.6-24-trixie
+FROM mcr.microsoft.com/devcontainers/javascript-node:4.0.8-24-trixie
 
 COPY post-create.sh /tmp/post-create.sh
 
