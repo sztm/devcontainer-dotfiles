@@ -12,7 +12,7 @@
   "features": {
     // https://github.com/devcontainers-extra/features/blob/main/src/gh-cli/devcontainer-feature.json
     "ghcr.io/devcontainers-extra/features/gh-cli:1.0.13": {
-      "version": "2.83.2"
+      "version": "2.90.0"
     },
     // https://github.com/devcontainers/features/blob/main/src/common-utils/devcontainer-feature.json
     "ghcr.io/devcontainers/features/common-utils:2.5.5": {
