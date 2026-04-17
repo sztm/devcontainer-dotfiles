@@ -1,13 +1,23 @@
 # devcontainer-dotfiles
 
-Dotfiles repository for setting up Claude Code development environment in Dev Containers.
+Dotfiles repository for setting up development environment with some tools in Dev Containers.
 
 ## Purpose
 
 This repository serves two purposes:
 
 1. **Host-side**: Provides shared `.devcontainer` configuration files that can be reused across projects
-2. **Container-side**: Deploys dotfiles for Claude Code and Zsh configuration inside containers
+2. **Container-side**: Deploys dotfiles for some tools and Zsh configuration inside containers
+   - Tools
+     - [Node.js](https://nodejs.org/en)
+     - [GitHub CLI](https://cli.github.com/)
+     - [Google Cloud CLI](https://cloud.google.com/cli)
+     - [Claude Code CLI](https://code.claude.com/docs/en/overview)
+     - [GitHub Copilot CLI](https://github.com/features/copilot/cli)
+     - [Terraform CLI](https://developer.hashicorp.com/terraform/cli)
+       - [terraform-docs](https://terraform-docs.io/)
+     - [fnox](https://fnox.jdx.dev/)
+     - [pnpm](https://pnpm.io/)
 
 ## Usage
 
