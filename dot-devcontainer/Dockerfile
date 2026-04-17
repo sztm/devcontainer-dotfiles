@@ -31,6 +31,26 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.
 RUN sudo apt-get update && sudo apt-get install -y google-cloud-cli
 
 
+# fnox version
+ARG FNOX_VERSION=1.20.0
+
+# Install packages for fnox
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  ca-certificates \
+  curl \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install fnox
+RUN set -eux; \
+  curl -fsSL \
+  "https://github.com/jdx/fnox/releases/download/v${FNOX_VERSION}/fnox-aarch64-unknown-linux-gnu.tar.gz" \
+  -o /tmp/fnox.tar.gz; \
+  tar -xzf /tmp/fnox.tar.gz -C /usr/local/bin/ fnox; \
+  chmod +x /usr/local/bin/fnox; \
+  rm /tmp/fnox.tar.gz; \
+  fnox --version
+
+
 USER node
 
 # NOTE: You can specify the latest version of Claude Code here with "latest"
