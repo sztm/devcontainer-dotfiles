@@ -58,3 +58,6 @@ ARG CLAUDE_CODE_VERSION=2.1.112
 
 # Install Claude Code
 RUN curl -fsSL https://claude.ai/install.sh | bash -s -- ${CLAUDE_CODE_VERSION}
+
+# Install GitHub Copilot CLI
+RUN curl -fsSL https://gh.io/copilot-install | bash
