@@ -1,6 +1,6 @@
 # The official javascript-node image: https://github.com/devcontainers/images/tree/main/src/javascript-node
 # List of available images: https://mcr.microsoft.com/v2/devcontainers/javascript-node/tags/list
-FROM mcr.microsoft.com/devcontainers/javascript-node:4.0.8-24-trixie
+FROM mcr.microsoft.com/devcontainers/javascript-node:4.0.11-24-trixie
 
 COPY post-create.sh /tmp/post-create.sh
 
@@ -21,7 +21,7 @@ RUN sudo apt-get update && sudo apt-get install -y google-cloud-cli
 
 
 # fnox version
-ARG FNOX_VERSION=1.20.0
+ARG FNOX_VERSION=1.25.1
 
 # Install packages for fnox
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -43,10 +43,11 @@ RUN set -eux; \
 USER node
 
 # NOTE: You can specify the latest version of Claude Code here with "latest"
-ARG CLAUDE_CODE_VERSION=2.1.112
+ARG CLAUDE_CODE_VERSION=2.1.175
 
 # Install Claude Code
 RUN curl -fsSL https://claude.ai/install.sh | bash -s -- ${CLAUDE_CODE_VERSION}
 
 # Install GitHub Copilot CLI
-RUN curl -fsSL https://gh.io/copilot-install | bash
+ARG GH_COPILOT_VERSION=1.0.59
+RUN curl -fsSL https://gh.io/copilot-install | VERSION="v${GH_COPILOT_VERSION}" bash
