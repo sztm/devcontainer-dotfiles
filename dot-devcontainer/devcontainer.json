@@ -36,6 +36,6 @@
     // Use named volumes for /mise to persist installed tools
     "source=${localWorkspaceFolderBasename}-mise,target=/mise,type=volume",
     // Use named volumes for Claude config to persist it across container rebuilds.
-    "${devcontainerId}-source=claude-code-config,target=/home/node/.claude,type=volume"
+    "source=${devcontainerId}-claude-code-config,target=/home/node/.claude,type=volume"
   ]
 }
