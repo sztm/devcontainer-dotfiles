@@ -5,8 +5,9 @@ fnox = "latest"
 gcloud = "latest"
 gh = "latest"
 node = "lts"
-terraform = "latest"
+pnpm = "latest"
 python = "latest"
+terraform = "latest"
 
 [settings]
 lockfile = true
