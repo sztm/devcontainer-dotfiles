@@ -8,7 +8,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN mkdir /mise
 ENV MISE_DATA_DIR="/mise"
 ENV MISE_CONFIG_DIR="/mise"
-ENV MISE_TRUSTED_CONFIG_PATHS="/mise"
 ENV MISE_CACHE_DIR="/mise/cache"
 ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
 ENV PATH="/mise/shims:$PATH"
@@ -17,3 +16,4 @@ RUN curl https://mise.run | sh
 RUN chmod -R 777 /mise
 
 COPY post-create.sh /tmp/post-create.sh
+COPY mise.toml /mise/config.toml
