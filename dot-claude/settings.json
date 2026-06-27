@@ -1,21 +1,37 @@
 {
+  "theme": "dark-ansi",
+  "model": "opusplan",
   "permissions": {
     "allow": [
-      "Bash(git checkout:*)",
-      "Bash(git add:*)",
-      "Bash(pnpm format:*)",
       "Bash(cat:*)",
-      "Bash(pnpm typecheck:*)",
-      "Bash(pnpm lint:*)",
-      "Bash(pnpm test:*)",
-      "Bash(find:*)",
-      "Bash(pnpm build:*)",
-      "Bash(pnpm check:*)",
-      "Bash(pnpm:*)",
       "Bash(ls:*)",
+      "Bash(find:*)",
       "Bash(grep:*)",
-      "Bash(gh auth status:*)"
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git status:*)",
+      "Bash(gh auth status:*)",
+      "Bash(pnpm:*)"
+    ],
+    "deny": [
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(git add -a:*)",
+      "Bash(git add -A:*)",
+      "Bash(git add -u:*)"
+    ],
+    "ask": [
+      "Bash(gh pr create:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm exec:*)",
+      "WebFetch(*)"
     ]
+  },
+  "sandbox": {
+    "enabled": false
   },
   "enabledPlugins": {
     "feature-dev@claude-plugins-official": false,
@@ -34,5 +50,32 @@
     "claude-md-management@claude-plugins-official": true
   },
   "language": "Japanese",
-  "plansDirectory": ".claude/plans"
+  "plansDirectory": ".claude/plans",
+  "spinnerTipsEnabled": false,
+  "autoMemoryEnabled": false,
+  "outputStyle": "Explanatory",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "msg=$(jq -r '.message // .title // \"Claude Code: Waiting for your response\"' 2>/dev/null || echo 'Claude Code: Waiting for your response'); tty_path=$(ps -C claude -o tty= 2>/dev/null | head -1 | tr -d ' '); [ -n \"$tty_path\" ] && printf '\\033]9;%s\\007\\a' \"$msg\" > \"/dev/$tty_path\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "tty_path=$(ps -C claude -o tty= 2>/dev/null | head -1 | tr -d ' '); [ -n \"$tty_path\" ] && printf '\\033]9;Claude Code: Work completed\\007\\a' > \"/dev/$tty_path\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
 }
