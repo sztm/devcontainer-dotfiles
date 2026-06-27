@@ -33,6 +33,8 @@
     // Use named volumes for node_modules to improve performance.
     "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
     "source=${localWorkspaceFolderBasename}-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume",
+    // Use named volumes for /mise to persist installed tools
+    "source=${devcontainerId}-mise,target=/mise,type=volume",
     // Use named volumes for Claude config to persist it across container rebuilds.
     "source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume"
   ]
