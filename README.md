@@ -7,9 +7,11 @@ Dotfiles repository for setting up development environment with some tools in De
 This repository serves two purposes:
 
 1. **Host-side**: Provides shared `.devcontainer` configuration files that can be reused across projects
-2. **Container-side**: Deploys dotfiles for some tools and Zsh configuration inside containers
+2. **Container-side**: Install some tools by [mise](https://mise.en.dev/) and deploy dotfiles for Zsh and Claude Code inside containers
    - Tools
      - [Node.js](https://nodejs.org/en)
+       - [pnpm](https://pnpm.io/)
+     - [Python](https://www.python.org/)
      - [GitHub CLI](https://cli.github.com/)
      - [Google Cloud CLI](https://cloud.google.com/cli)
      - [Claude Code CLI](https://code.claude.com/docs/en/overview)
@@ -17,7 +19,6 @@ This repository serves two purposes:
      - [Terraform CLI](https://developer.hashicorp.com/terraform/cli)
        - [terraform-docs](https://terraform-docs.io/)
      - [fnox](https://fnox.jdx.dev/)
-     - [pnpm](https://pnpm.io/)
 
 ## Usage
 
