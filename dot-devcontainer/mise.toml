@@ -8,6 +8,7 @@ node = "lts"
 pnpm = "latest"
 python = "latest"
 terraform = "latest"
+terraform-docs = "latest"
 
 [settings]
 lockfile = true
