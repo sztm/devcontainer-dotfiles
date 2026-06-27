@@ -1,0 +1,15 @@
+[tools]
+claude-code = "latest"
+copilot = "latest"
+fnox = "latest"
+gcloud = "latest"
+gh = "latest"
+node = "lts"
+terraform = "latest"
+python = "latest"
+
+[settings]
+lockfile = true
+idiomatic_version_file = true
+idiomatic_version_file_enable_tools = ["node", "pnpm", "npm"]
+minimum_release_age = "7d"

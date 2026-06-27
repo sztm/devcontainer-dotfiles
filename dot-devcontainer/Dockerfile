@@ -4,50 +4,14 @@ FROM mcr.microsoft.com/devcontainers/javascript-node:4.0.11-24-trixie
 
 COPY post-create.sh /tmp/post-create.sh
 
-
-# Install packages for Google Cloud CLI
-RUN sudo apt-get update && sudo apt-get install -y \
-  apt-transport-https \
-  ca-certificates \
-  gnupg \
-  curl
-
-RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
-
-RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-
-# Install the Google Cloud CLI
-RUN sudo apt-get update && sudo apt-get install -y google-cloud-cli
-
-
-# fnox version
-ARG FNOX_VERSION=1.25.1
-
-# Install packages for fnox
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  ca-certificates \
-  curl \
-  && rm -rf /var/lib/apt/lists/*
-
-# Install fnox
-RUN set -eux; \
-  curl -fsSL \
-  "https://github.com/jdx/fnox/releases/download/v${FNOX_VERSION}/fnox-aarch64-unknown-linux-gnu.tar.gz" \
-  -o /tmp/fnox.tar.gz; \
-  tar -xzf /tmp/fnox.tar.gz -C /usr/local/bin/ fnox; \
-  chmod +x /usr/local/bin/fnox; \
-  rm /tmp/fnox.tar.gz; \
-  fnox --version
-
-
-USER node
-
-# NOTE: You can specify the latest version of Claude Code here with "latest"
-ARG CLAUDE_CODE_VERSION=2.1.175
-
-# Install Claude Code
-RUN curl -fsSL https://claude.ai/install.sh | bash -s -- ${CLAUDE_CODE_VERSION}
-
-# Install GitHub Copilot CLI
-ARG GH_COPILOT_VERSION=1.0.59
-RUN curl -fsSL https://gh.io/copilot-install | VERSION="v${GH_COPILOT_VERSION}" bash
+# Install mise
+#  https://mise.jdx.dev/mise-cookbook/docker.html#docker-image-with-mise
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN mkdir /mise
+ENV MISE_DATA_DIR="/mise"
+ENV MISE_CONFIG_DIR="/mise"
+ENV MISE_CACHE_DIR="/mise/cache"
+ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
+ENV PATH="/mise/shims:$PATH"
+# ENV MISE_VERSION="..."
+RUN curl https://mise.run | sh
