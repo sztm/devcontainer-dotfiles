@@ -18,7 +18,6 @@ ln -sf "$DOTFILES_DIR/dot-zshrc" "$TARGET"
 echo "✓ Installed .zshrc"
 
 # dot-mise/* -> /mise/*
-mkdir -p "/.mise"
 for SRC in "$DOTFILES_DIR/dot-mise"/* "$DOTFILES_DIR/dot-mise"/.[!.]*; do
     [ -e "$SRC" ] || continue
     BASENAME=$(basename "$SRC")
