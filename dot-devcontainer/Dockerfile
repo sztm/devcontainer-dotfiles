@@ -15,3 +15,4 @@ ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
 ENV PATH="/mise/shims:$PATH"
 # ENV MISE_VERSION="..."
 RUN curl https://mise.run | sh
+RUN chmod -R 777 /mise
