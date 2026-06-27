@@ -4,5 +4,6 @@
 sudo chown -R node node_modules .pnpm-store
 
 echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
+mise trust /mise/config.toml
 mise doctor
 mise install
