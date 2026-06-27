@@ -17,19 +17,19 @@ fi
 ln -sf "$DOTFILES_DIR/dot-zshrc" "$TARGET"
 echo "✓ Installed .zshrc"
 
-# dot-mise/* -> ~/mise/*
-mkdir -p "$HOME/.mise"
+# dot-mise/* -> /mise/*
+mkdir -p "/.mise"
 for SRC in "$DOTFILES_DIR/dot-mise"/* "$DOTFILES_DIR/dot-mise"/.[!.]*; do
     [ -e "$SRC" ] || continue
     BASENAME=$(basename "$SRC")
-    TARGET="$HOME/mise/$BASENAME"
+    TARGET="/mise/$BASENAME"
     if [ -e "$TARGET" ] && [ ! -L "$TARGET" ]; then
         BACKUP="${TARGET}.backup.${TIMESTAMP}"
         mv "$TARGET" "$BACKUP"
-        echo "✓ Backed up existing mise/$BASENAME to ${BACKUP}"
+        echo "✓ Backed up existing /mise/$BASENAME to ${BACKUP}"
     fi
     ln -sf "$SRC" "$TARGET"
-    echo "✓ Installed mise/$BASENAME"
+    echo "✓ Installed /mise/$BASENAME"
 done
 
 # dot-claude/* -> ~/.claude/*
