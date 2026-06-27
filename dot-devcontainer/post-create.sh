@@ -3,6 +3,5 @@
 # change owner from root
 sudo chown -R node node_modules .pnpm-store
 
-echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
-mise doctor
+# Install tools by mise
 mise install
