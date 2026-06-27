@@ -6,6 +6,8 @@
 !dot-zshrc
 !dot-claude/
 !dot-claude/settings.json
+!dot-mise/
+!dot-mise/config.toml
 !install-container.sh
 
 !dot-devcontainer/
