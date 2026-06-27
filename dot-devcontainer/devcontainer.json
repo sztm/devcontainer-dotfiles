@@ -10,21 +10,9 @@
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
-    // https://github.com/devcontainers-extra/features/blob/main/src/gh-cli/devcontainer-feature.json
-    "ghcr.io/devcontainers-extra/features/gh-cli:1.0.13": {
-      "version": "2.93.0"
-    },
     // https://github.com/devcontainers/features/blob/main/src/common-utils/devcontainer-feature.json
     "ghcr.io/devcontainers/features/common-utils:2.5.9": {
       "configureZshAsDefaultShell": true
-    },
-    // https://github.com/devcontainers/features/blob/main/src/terraform/devcontainer-feature.json
-    "ghcr.io/devcontainers/features/terraform:1.4.3": {
-      "installTerraformDocs": true
-    },
-    // https://github.com/devcontainers/features/blob/main/src/python/devcontainer-feature.json
-    "ghcr.io/devcontainers/features/python:1.8.0": {
-      "version": "3.14"
     }
   },
 
